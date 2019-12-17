@@ -1,0 +1,130 @@
+HW18-Blockchain      Create a Custom Development Chain 
+
+
+Set up your custom testnet blockchain: (Proof of Work  consensus algorithm  used)
+
+    Generated genesis block 
+        Name of the network goldeninti 
+        Accounts prefunded, public address 0xe1A89068bCDbeFb7F28D228d7B051C77235e8909   *** MyCrypto public address.   
+        Chain Network id 453
+        Genesis block configured  image: setup_tesnet_blockchain/Screenshots/configured_genesis_block.png  
+
+        code used:./puppeth
+
+        Exported genesis spec saved in goldeninti.json  setup_tesnet_blockchain/goldeninti.json
+
+        code used:./puppeth
+
+    Created two accounts for nodes:
+        node1
+        password = benad1
+        Public address of the key:   0x64f6A7CDA3DD2Cb9C989A213812EF3C5f9454D06
+        Path of the secret key file: node1\keystore\UTC XXXXXXXXXXXXXXXXXXXXXXXXXX  
+        
+        
+        code used: ./geth account new --datadir node1 
+
+        node2
+        password = benad2
+        Public address of the key:   0x6B17B89B7e9522Bf6Bd20BF7BA73444AAecbda35
+        Path of the secret key file: node2\keystore\UTC xxxxxxxxxxxxxxxxxxxxxxxxxxx 
+        
+        
+        code used: ./geth account new --datadir node2 
+
+
+    Initialized nodes using the genesis block:
+
+        Successfully Initialized   image: init_node1.png    image: setup_tesnet_blockchain/Screenshots/init_node1.png
+        Successfully Initialized   image: init_node2.png    image: setup_tesnet_blockchain/Screenshots/init_node2.png
+        code used:    ./geth init goldeninti.json --datadir node1
+        code used:    ./geth init goldeninti.json --datadir node2  
+
+    
+    Starting both nodes
+
+        node1` will be a full node that is mining.
+        node2` will be a full node that exposes an RPC port, allowing to talk to it with other apps like MyCrypto.
+
+        node1:
+        code used:  ./geth --datadir node1 --mine --minerthreads 1
+        * The `--mine` flag tells the node to mine new blocks.
+        * The `--minerthreads` flag tells `geth` how many CPU threads, or "workers" to use during mining.
+          Since the difficulty is low, the set is 1.
+          Mining node1   image: mining_node1  setup_tesnet_blockchain/Screenshots/mining_node1.png
+        * Port 30303 used by default. 
+       
+        node2:
+        code used: ./geth --datadir node2 --port 30304 --rpc --bootnodes "enode://f9e4aa75d19cfc192ac8cbee37466ba677d220c0d143a85192676334fcf09da5d5456f0a765f487fbefd8379c9faf17f3c10f2454b6e1e3361c2b61cfc4e8486@127.0.0.1:30303" --ipcdisable
+        -- port 30304 (since node1 use 30303 by default)
+        -- rpc let connect to MyCrypto or metamaskar
+        -- bootnodes connect any node to the network through
+        self=enode://f9e4aa75d19cfc192ac8cbee37466ba677d220c0d143a85192676334fcf09da5d5456f0a765f487fbefd8379c9faf17f3c10f2454b6e1e3361c2b61cfc4e8486@127.0.0.1:30303
+            Importing and synchronizing node2   image:setup_tesnet_blockchain/Screenshots/import_synchro_node2.png
+         
+    EXTRACT PRIVATE KEY  xxxxxxxxxxxxxxx
+        Kovan
+        Nemonic Phrase
+        Pre-fund account
+        Wallet info
+        Copy and paste private key
+
+     Custom Node selected and connected 
+        Open up MyCrypto
+        Change network
+        Add custom node:
+                  
+            Network = custom 
+            Node name = node1
+            Network name = goldeninti
+            Currency = ETH
+            Chain id = 453
+            URL = http://127.0.0.1:8545 
+
+
+    How to Use the Network
+
+
+        Open the wallet that you use to pre-fund the chain during genesis creation as follows:
+
+            * On the left pane menu, click on "View & Send".
+
+            * Change network to goldeninti
+
+            * Next, click on the "Private Key" and paste PRIVATE KEY option to continue.
+
+            * A new window will pop-up, paste the private key of the pre-fund wallet and click on the "Unlock" button to continue.
+
+            * You will see the balance of the pre-funded account. For testing puposes looked like we're filthy rich!, this is the balance that was pre-funded for this account in the genesis configuration;
+            
+              these millions of ETH tokens were just for testing purposes.
+
+            * Put the address to send ETH. For testing purposes copy the pre-fund address into the "To Address" field, then fill in an arbitrary amount of ETH,
+            
+             to send ETH to yourself - same address for testing purposes. Image setup_tesnet_blockchain/Screenshots/test_connecting_goldeninti.png
+
+            * Confirm the transaction by clicking "Send Transaction", and the "Send" button in the pop-up window.
+
+                Send transaction Images confirm_transact.png (testing image)
+
+            * Click the `Check TX Status` when the green message pops up, confirm the logout:
+
+                Image Check_Test_Status.png
+
+                Transaction sent images Status_SUCCESSFUL.png (testing image)
+
+Anexed: setup_tesnet_blockchain folder/Screenshots. All images of the setup_tesnet_blockchain and tested the blockchain.
+        setup_tesnet_blockchain folder/goldeninti.json
+        setup_tesnet_blockchain folder/node1
+        setup_tesnet_blockchain folder/node2
+
+Software Tools and utilities
+        MyCrypto Desktop App to manage ethereum wallets and make transactions in the blockchain.
+        Go Ethereum Tools to create a blockchain, from the genesis block to mining and making transactions.
+        Git Bash
+         
+
+
+
+
+

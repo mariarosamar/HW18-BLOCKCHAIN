@@ -1,0 +1,32 @@
+=============== Dec 15, 2019 (CST) ===============
+18:04:34.682030 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+18:04:34.685829 db@open opening
+18:04:34.686857 version@stat F·[] S·0B[] Sc·[]
+18:04:34.688929 db@janitor F·2 G·0
+18:04:34.688929 db@open done T·3.0998ms
+18:04:34.703874 db@close closing
+18:04:34.704848 db@close done T·974.4µs
+=============== Dec 15, 2019 (CST) ===============
+18:16:37.778032 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+18:16:37.779030 version@stat F·[] S·0B[] Sc·[]
+18:16:37.779030 db@open opening
+18:16:37.780028 journal@recovery F·1
+18:16:37.787010 journal@recovery recovering @1
+18:16:37.790036 memdb@flush created L0@2 N·622 S·50KiB "\x02d\xfc..\x19Ba,v429":"\xfe\x88\xcf..H\xef\xcc,v362"
+18:16:37.796981 version@stat F·[1] S·50KiB[50KiB] Sc·[0.25]
+18:16:37.801969 db@janitor F·3 G·0
+18:16:37.801969 db@open done T·22.9385ms
+21:29:05.925609 db@close closing
+21:29:05.925609 db@close done T·0s
+=============== Dec 16, 2019 (CST) ===============
+18:01:56.452788 log@legend F·NumFile S·FileSize N·Entry C·BadEntry B·BadBlock Ke·KeyError D·DroppedEntry L·Level Q·SeqNum T·TimeElapsed
+18:01:56.453791 version@stat F·[1] S·50KiB[50KiB] Sc·[0.25]
+18:01:56.453791 db@open opening
+18:01:56.453791 journal@recovery F·1
+18:01:56.460770 journal@recovery recovering @3
+18:01:56.487670 memdb@flush created L0@5 N·13140 S·670KiB "\trE..U\xba\x05,v13759":"\xeeUG..\xf5\xf2\x8d,v13756"
+18:01:56.494646 version@stat F·[2] S·720KiB[720KiB] Sc·[0.50]
+18:01:56.500664 db@janitor F·4 G·0
+18:01:56.500664 db@open done T·46.8733ms
+18:31:08.487168 db@close closing
+18:31:08.488187 db@close done T·1.0189ms
